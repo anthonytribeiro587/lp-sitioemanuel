@@ -1,8 +1,7 @@
 import Image from "next/image";
 import PhotoGallery from "@/components/PhotoGallery";
 
-const ASSET_BASE =
-  "https://raw.githubusercontent.com/anthonytribeiro587/sistema-agendamento/main/public";
+const ASSET_BASE = "";
 
 type IconName =
   | "leaf"
@@ -148,7 +147,7 @@ function Stars({ rating = 5 }: { rating?: number }) {
 }
 
 export default function HomePage() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5551995092781";
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5551986129832";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     "Olá! Gostaria de conhecer melhor o Sítio Emanuel e consultar informações para um retiro ou encontro."
   )}`;
