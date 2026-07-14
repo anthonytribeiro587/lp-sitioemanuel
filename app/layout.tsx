@@ -6,6 +6,8 @@ import "./globals.css";
 
 const SITE_URL = "https://lp-sitioemanuel.vercel.app";
 const PHONE_NUMBER = "+55 51 98612-9832";
+const GOOGLE_SITE_VERIFICATION =
+  "Pb1nYCgtN3jv6QmXq3HG2g_OMsYze0cKRO9jksMTF6A";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -73,7 +75,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    google: GOOGLE_SITE_VERIFICATION,
   },
 };
 
