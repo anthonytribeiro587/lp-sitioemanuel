@@ -1,5 +1,5 @@
 export default function WhatsAppButton() {
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5551995092781";
+  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5551986129832";
   const message = encodeURIComponent(
     "Olá! Gostaria de mais informações sobre o Sítio Emanuel."
   );
