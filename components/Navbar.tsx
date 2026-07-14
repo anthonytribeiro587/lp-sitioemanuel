@@ -4,9 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const ASSET_BASE =
-  "https://raw.githubusercontent.com/anthonytribeiro587/sistema-agendamento/main/public";
-
 const links = [
   { href: "/#estrutura", label: "Estrutura" },
   { href: "/#avaliacoes", label: "Avaliações" },
@@ -25,7 +22,7 @@ function WhatsAppIcon() {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5551995092781";
+  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5551986129832";
   const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(
     "Olá! Gostaria de informações sobre o Sítio Emanuel."
   )}`;
@@ -41,7 +38,7 @@ export default function Navbar() {
         >
           <div className="relative h-10 w-14 shrink-0 overflow-hidden">
             <Image
-              src={`${ASSET_BASE}/logo-sitio-emanuel.png`}
+              src="/logo-sitio-emanuel.png"
               alt=""
               fill
               className="object-contain"
