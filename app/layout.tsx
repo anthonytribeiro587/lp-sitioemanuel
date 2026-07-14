@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Sítio Emanuel",
   },
   description:
-    "Espaço em Gravataí/RS para retiros, encontros de igrejas e eventos em grupo, com natureza, dormitórios, salões e área de lazer.",
+    "Espaço em Gravataí/RS para retiros, encontros de igrejas e eventos em grupo, com natureza, dormitórios, salões, piscinas e área de lazer.",
   applicationName: "Sítio Emanuel",
   category: "Espaço para retiros e encontros",
   keywords: [
@@ -35,9 +35,7 @@ export const metadata: Metadata = {
     "local para retiro em Gravataí",
     "retiro cristão no Rio Grande do Sul",
   ],
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
@@ -45,14 +43,14 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     title: "Sítio Emanuel — Retiros e Encontros",
     description:
-      "Estrutura, natureza e tranquilidade para retiros e encontros em Gravataí/RS.",
+      "Natureza, conforto e estrutura completa para retiros e encontros em Gravataí/RS.",
     siteName: "Sítio Emanuel",
     images: [
       {
-        url: "/fotos/2.jpeg",
+        url: "/fotos/1.jpeg",
         width: 1200,
         height: 630,
-        alt: "Vista aérea do Sítio Emanuel",
+        alt: "Área de lazer do Sítio Emanuel",
       },
     ],
   },
@@ -60,8 +58,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sítio Emanuel — Retiros e Encontros",
     description:
-      "Estrutura, natureza e tranquilidade para retiros e encontros em Gravataí/RS.",
-    images: ["/fotos/2.jpeg"],
+      "Natureza, conforto e estrutura completa para retiros e encontros em Gravataí/RS.",
+    images: ["/fotos/1.jpeg"],
   },
   robots: {
     index: true,
@@ -74,16 +72,14 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  verification: {
-    google: GOOGLE_SITE_VERIFICATION,
-  },
+  verification: { google: GOOGLE_SITE_VERIFICATION },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#080d0a",
-  colorScheme: "dark",
+  themeColor: "#07130d",
+  colorScheme: "light",
 };
 
 const structuredData = {
@@ -95,9 +91,9 @@ const structuredData = {
   url: SITE_URL,
   telephone: PHONE_NUMBER,
   image: [
+    `${SITE_URL}/fotos/1.jpeg`,
     `${SITE_URL}/fotos/2.jpeg`,
     `${SITE_URL}/fotos/5.jpeg`,
-    `${SITE_URL}/fotos/1.jpeg`,
   ],
   address: {
     "@type": "PostalAddress",
@@ -116,7 +112,7 @@ const structuredData = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR" className={inter.variable}>
-      <body className="min-h-screen bg-[#080d0a] text-white antialiased">
+      <body className="min-h-screen bg-white text-[#172019] antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
