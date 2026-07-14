@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const links = [
+  { href: "/#inicio", label: "Início" },
   { href: "/#estrutura", label: "Estrutura" },
-  { href: "/#avaliacoes", label: "Avaliações" },
   { href: "/#como-funciona", label: "Como funciona" },
   { href: "/#localizacao", label: "Localização" },
+  { href: "/#avaliacoes", label: "Avaliações" },
   { href: "/#contato", label: "Contato" },
 ];
 
@@ -22,64 +23,47 @@ function WhatsAppIcon() {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5551986129832";
   const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(
     "Olá! Gostaria de informações sobre o Sítio Emanuel."
   )}`;
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[0.07] bg-[#080d0a]/90 backdrop-blur-xl supports-[backdrop-filter]:bg-[#080d0a]/76">
-      <div className="mx-auto flex h-[68px] max-w-[1220px] items-center justify-between px-4 sm:px-6">
-        <Link
-          href="/"
-          onClick={() => setOpen(false)}
-          className="flex items-center gap-2.5 rounded-xl"
-          aria-label="Página inicial do Sítio Emanuel"
-        >
-          <div className="relative h-10 w-14 shrink-0 overflow-hidden">
-            <Image
-              src="/logo-sitio-emanuel.png"
-              alt=""
-              fill
-              className="object-contain"
-              sizes="56px"
-              priority
-            />
-          </div>
-          <span className="text-[14px] font-semibold tracking-[-0.01em] text-white sm:text-[15px]">
-            Sítio Emanuel
-          </span>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled || open
+          ? "border-b border-white/10 bg-[#07130d]/94 shadow-[0_12px_35px_rgba(0,0,0,.18)] backdrop-blur-xl"
+          : "bg-gradient-to-b from-black/45 to-transparent"
+      }`}
+    >
+      <div className="mx-auto flex h-[78px] max-w-[1180px] items-center justify-between px-5 sm:px-8 lg:px-10">
+        <Link href="/#inicio" onClick={() => setOpen(false)} className="relative h-14 w-28 shrink-0" aria-label="Página inicial do Sítio Emanuel">
+          <Image src="/logo-sitio-emanuel.png" alt="Sítio Emanuel" fill className="object-contain object-left" sizes="112px" priority />
         </Link>
 
-        <nav className="hidden items-center gap-0.5 md:flex" aria-label="Navegação principal">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Navegação principal">
           {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="rounded-lg px-2.5 py-2 text-[12px] font-medium text-white/58 transition hover:bg-white/[0.055] hover:text-white lg:px-3 lg:text-[13px]"
-            >
+            <Link key={link.href} href={link.href} className="rounded-full px-3 py-2 text-[12px] font-semibold text-white/80 transition hover:bg-white/10 hover:text-white">
               {link.label}
             </Link>
           ))}
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="ml-2 inline-flex min-h-10 items-center gap-2 rounded-lg bg-[#22c55e] px-4 text-[12px] font-semibold text-[#041108] transition hover:bg-[#2bd268] lg:text-[13px]"
-          >
-            <WhatsAppIcon />
-            Falar no WhatsApp
-          </a>
         </nav>
 
-        <button
-          type="button"
-          onClick={() => setOpen((value) => !value)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.035] text-white md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-navigation"
-          aria-label={open ? "Fechar menu" : "Abrir menu"}
-        >
+        <div className="hidden lg:block">
+          <a href={whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#58b947] px-5 text-[12px] font-bold text-white shadow-[0_10px_30px_rgba(46,142,54,.25)] transition hover:-translate-y-0.5 hover:bg-[#67c756]">
+            <WhatsAppIcon /> Fale no WhatsApp
+          </a>
+        </div>
+
+        <button type="button" onClick={() => setOpen((value) => !value)} className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/20 text-white backdrop-blur lg:hidden" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Fechar menu" : "Abrir menu"}>
           <span className="relative block h-4 w-5">
             <span className={`absolute left-0 top-0 h-px w-5 bg-current transition ${open ? "translate-y-[7px] rotate-45" : ""}`} />
             <span className={`absolute left-0 top-[7px] h-px w-5 bg-current transition ${open ? "opacity-0" : ""}`} />
@@ -88,32 +72,15 @@ export default function Navbar() {
         </button>
       </div>
 
-      <div
-        id="mobile-navigation"
-        className={`border-t border-white/[0.07] bg-[#090f0b] px-4 transition-all duration-200 md:hidden ${
-          open ? "max-h-[520px] py-4 opacity-100" : "max-h-0 overflow-hidden py-0 opacity-0"
-        }`}
-      >
-        <nav className="mx-auto grid max-w-[1220px] gap-1" aria-label="Navegação mobile">
+      <div id="mobile-navigation" className={`overflow-hidden border-t border-white/10 bg-[#07130d] px-5 transition-all duration-300 lg:hidden ${open ? "max-h-[620px] py-5 opacity-100" : "max-h-0 py-0 opacity-0"}`}>
+        <nav className="mx-auto grid max-w-[1180px] gap-1" aria-label="Navegação mobile">
           {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="rounded-xl px-3 py-3 text-sm font-medium text-white/72 transition hover:bg-white/[0.055] hover:text-white"
-            >
+            <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="rounded-xl px-3 py-3 text-sm font-semibold text-white/75 transition hover:bg-white/7 hover:text-white">
               {link.label}
             </Link>
           ))}
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => setOpen(false)}
-            className="mt-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#22c55e] px-5 text-sm font-semibold text-[#041108]"
-          >
-            <WhatsAppIcon />
-            Falar no WhatsApp
+          <a href={whatsappUrl} target="_blank" rel="noreferrer" onClick={() => setOpen(false)} className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#58b947] px-5 text-sm font-bold text-white">
+            <WhatsAppIcon /> Fale no WhatsApp
           </a>
         </nav>
       </div>
