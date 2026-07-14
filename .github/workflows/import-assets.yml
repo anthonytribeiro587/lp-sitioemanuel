@@ -47,6 +47,31 @@ jobs:
           test -s public/fotos/6.jpeg
           test -s public/logo-sitio-emanuel.png
 
+      - name: Trocar caminhos externos por arquivos locais
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("components/HomePage.tsx")
+          content = path.read_text(encoding="utf-8")
+          external_assets = '''const ASSET_BASE =
+            "https://raw.githubusercontent.com/anthonytribeiro587/sistema-agendamento/main/public";'''
+
+          if external_assets in content:
+              content = content.replace(external_assets, 'const ASSET_BASE = "";')
+          elif 'const ASSET_BASE = "";' not in content:
+              raise SystemExit("Não foi possível localizar a configuração de imagens em HomePage.tsx")
+
+          content = content.replace("5551995092781", "5551986129832")
+          path.write_text(content, encoding="utf-8")
+
+          if "raw.githubusercontent.com/anthonytribeiro587/sistema-agendamento" in content:
+              raise SystemExit("A dependência externa ainda está presente em HomePage.tsx")
+          PY
+
       - name: Salvar os arquivos no novo repositório
         shell: bash
         run: |
@@ -54,12 +79,12 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/fotos public/logo-sitio-emanuel.png
+          git add public/fotos public/logo-sitio-emanuel.png components/HomePage.tsx
 
           if git diff --cached --quiet; then
             echo "Os arquivos já estão atualizados."
             exit 0
           fi
 
-          git commit -m "Adicionar fotos e logotipo locais"
+          git commit -m "Internalizar fotos e atualizar WhatsApp"
           git push
