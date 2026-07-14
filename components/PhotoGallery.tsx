@@ -3,16 +3,13 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
-const ASSET_BASE =
-  "https://raw.githubusercontent.com/anthonytribeiro587/sistema-agendamento/main/public";
-
 const PHOTOS = [
-  { src: `${ASSET_BASE}/fotos/1.jpeg`, alt: "Piscinas e área de lazer do Sítio Emanuel" },
-  { src: `${ASSET_BASE}/fotos/2.jpeg`, alt: "Vista aérea do Sítio Emanuel" },
-  { src: `${ASSET_BASE}/fotos/3.jpeg`, alt: "Área de convivência do Sítio Emanuel" },
-  { src: `${ASSET_BASE}/fotos/4.jpeg`, alt: "Dormitórios do Sítio Emanuel" },
-  { src: `${ASSET_BASE}/fotos/5.jpeg`, alt: "Estrutura principal do Sítio Emanuel" },
-  { src: `${ASSET_BASE}/fotos/6.jpeg`, alt: "Área externa do Sítio Emanuel" },
+  { src: "/fotos/1.jpeg", alt: "Piscinas e área de lazer do Sítio Emanuel" },
+  { src: "/fotos/2.jpeg", alt: "Vista aérea do Sítio Emanuel" },
+  { src: "/fotos/3.jpeg", alt: "Área de convivência do Sítio Emanuel" },
+  { src: "/fotos/4.jpeg", alt: "Dormitórios do Sítio Emanuel" },
+  { src: "/fotos/5.jpeg", alt: "Estrutura principal do Sítio Emanuel" },
+  { src: "/fotos/6.jpeg", alt: "Área externa do Sítio Emanuel" },
 ] as const;
 
 function CameraIcon() {
