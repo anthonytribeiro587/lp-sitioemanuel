@@ -9,6 +9,7 @@ const SITE_URL = "https://lp-sitioemanuel.vercel.app";
 const PHONE_NUMBER = "+55 51 98612-9832";
 const GOOGLE_SITE_VERIFICATION =
   "Pb1nYCgtN3jv6QmXq3HG2g_OMsYze0cKRO9jksMTF6A";
+const FAVICON_URL = "/favicon-fallback.svg?v=7";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -41,12 +42,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/icon.svg?v=4",
+        url: FAVICON_URL,
         type: "image/svg+xml",
         sizes: "any",
       },
     ],
-    shortcut: ["/icon.svg?v=4"],
+    shortcut: [FAVICON_URL],
   },
   openGraph: {
     type: "website",
