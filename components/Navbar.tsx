@@ -44,9 +44,21 @@ export default function Navbar() {
           : "bg-gradient-to-b from-black/45 to-transparent"
       }`}
     >
-      <div className="mx-auto flex h-[78px] max-w-[1180px] items-center justify-between px-5 sm:px-8 lg:px-10">
-        <Link href="/#inicio" onClick={() => setOpen(false)} className="relative h-14 w-28 shrink-0" aria-label="Página inicial do Sítio Emanuel">
-          <Image src="/logo-sitio-emanuel.png" alt="Sítio Emanuel" fill className="object-contain object-left" sizes="112px" priority />
+      <div className="mx-auto flex h-[88px] max-w-[1180px] items-center justify-between px-5 sm:px-8 lg:px-10">
+        <Link
+          href="/#inicio"
+          onClick={() => setOpen(false)}
+          className="relative h-16 w-36 shrink-0 sm:h-[70px] sm:w-40 lg:h-[74px] lg:w-44"
+          aria-label="Página inicial do Sítio Emanuel"
+        >
+          <Image
+            src="/logo-sitio-emanuel.png"
+            alt="Sítio Emanuel"
+            fill
+            className="object-contain object-left"
+            sizes="(max-width: 640px) 144px, (max-width: 1024px) 160px, 176px"
+            priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Navegação principal">
