@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import SiteMotion from "@/components/SiteMotion";
 import "./globals.css";
 
 const SITE_URL = "https://lp-sitioemanuel.vercel.app";
@@ -117,6 +118,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <SiteMotion />
         <Navbar />
         {children}
         <WhatsAppButton />
