@@ -9,7 +9,6 @@ const SITE_URL = "https://lp-sitioemanuel.vercel.app";
 const PHONE_NUMBER = "+55 51 98612-9832";
 const GOOGLE_SITE_VERIFICATION =
   "Pb1nYCgtN3jv6QmXq3HG2g_OMsYze0cKRO9jksMTF6A";
-const FAVICON_URL = "/favicon-fallback.svg?v=7";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -41,13 +40,15 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   icons: {
     icon: [
-      {
-        url: FAVICON_URL,
-        type: "image/svg+xml",
-        sizes: "any",
-      },
+      { url: "/favicon.ico?v=10", sizes: "any" },
+      { url: "/favicon.png?v=10", type: "image/png", sizes: "64x64" },
+      { url: "/icon.png?v=10", type: "image/png", sizes: "64x64" },
+      { url: "/icon-192.png?v=10", type: "image/png", sizes: "192x192" },
     ],
-    shortcut: [FAVICON_URL],
+    shortcut: ["/favicon.ico?v=10"],
+    apple: [
+      { url: "/apple-icon.png?v=10", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     type: "website",
