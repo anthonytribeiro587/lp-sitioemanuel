@@ -50,7 +50,7 @@ const structureItems = [
   ["grill", "Alimentação inclusa e cozinha de apoio"],
   ["users", "Piscinas para lazer e integração"],
   ["party", "Campo de futebol e quadra de vôlei"],
-  ["check", "Quiosque com mesas de jogos: sinuca, pingue-pongue e fla-flu"],
+  ["check", "Quiosque com mesas de jogos (sinuca, pingue-pongue e fla-flu)"],
   ["shield", "Espaço especial para fogueira e momentos de comunhão"],
   ["leaf", "Ampla área verde em meio à natureza e estacionamento no local"],
 ] as const;
@@ -241,7 +241,7 @@ export default function HomePage() {
           </div>
 
           <div className="min-h-[330px] overflow-hidden rounded-[18px] border border-slate-200 bg-white shadow-sm">
-            <iframe title="Localização do Sítio Emanuel" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3459.8661566685896!2d-50.96700012378962!3d-29.86813357501282!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x95190d11b273ac4d%3A0xecbc16d6da05b014!2sSitio%20Emanuel%20Retiros!5e0!3m2!1spt-BR!2sbr!4v1776280247918!5m2!1spt-BR!2sbr" loading="lazy" className="h-full min-h-[330px] w-full border-0" />
+            <iframe title="Localização do Sítio Emanuel" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3459.8661566685896!2d-50.96700012378962!3d-29.86813357501282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95190d11b273ac4d%3A0xecbc16d6da05b014!2sSitio%20Emanuel%20Retiros!5e0!3m2!1spt-BR!2sbr!4v1776280247918!5m2!1spt-BR!2sbr" loading="lazy" className="h-full min-h-[330px] w-full border-0" />
           </div>
 
           <aside id="contato" className="flex flex-col justify-center rounded-[18px] bg-[#092016] p-7 text-white shadow-[0_20px_50px_rgba(12,38,23,.18)]">
