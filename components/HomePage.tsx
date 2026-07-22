@@ -45,26 +45,29 @@ function Icon({ name, className = "h-5 w-5" }: { name: IconName; className?: str
 }
 
 const structureItems = [
-  ["home", "Salões e ambientes equipados"],
-  ["grill", "Churrasqueiras e cozinha"],
-  ["leaf", "Área verde e arborizada"],
-  ["parking", "Estacionamento no local"],
-  ["bath", "Banheiros e dormitórios"],
+  ["home", "Salão de cultos para até 150 pessoas"],
+  ["bath", "Dormitórios para 10 e 16 pessoas, com banheiros internos e chuveiros a gás"],
+  ["grill", "Alimentação inclusa e cozinha de apoio"],
+  ["users", "Piscinas para lazer e integração"],
+  ["party", "Campo de futebol e quadra de vôlei"],
+  ["check", "Quiosque com mesas de jogos: sinuca, pingue-pongue e fla-flu"],
+  ["shield", "Espaço especial para fogueira e momentos de comunhão"],
+  ["leaf", "Ampla área verde em meio à natureza e estacionamento no local"],
 ] as const;
 
 const steps = [
-  ["whatsapp", "1. Fale conosco", "Conte pelo WhatsApp o tipo de encontro que está planejando."],
-  ["calendar", "2. Consulte as datas", "A equipe verifica o período e orienta sobre as possibilidades."],
-  ["check", "3. Alinhe os detalhes", "Valores, estrutura e necessidades do grupo são combinados diretamente."],
-  ["party", "4. É só celebrar", "Chegue, aproveite o espaço e viva momentos inesquecíveis."],
+  ["whatsapp", "1. Entre em contato", "Fale conosco pelo WhatsApp e informe a data desejada e o número aproximado de participantes."],
+  ["calendar", "2. Consulte a disponibilidade", "Verificamos as datas disponíveis e enviamos todas as informações sobre a estrutura, alimentação e condições da reserva."],
+  ["check", "3. Confirme sua reserva", "Após definir todos os detalhes, realizamos a reserva da data e prestamos todo o suporte necessário para a organização do retiro."],
+  ["party", "4. Viva dias inesquecíveis", "Chegue ao Sítio Emanuel Retiros e desfrute de um ambiente preparado para que sua igreja viva momentos de comunhão, renovação espiritual e encontro com Deus."],
 ] as const;
 
 const benefits = [
-  ["leaf", "Contato com a natureza", "Áreas verdes para desacelerar, renovar as energias e aproveitar cada momento."],
-  ["home", "Estrutura completa", "Ambientes preparados para grupos, encontros, retiros e celebrações."],
-  ["shield", "Privacidade e segurança", "Um espaço reservado, acolhedor e organizado para receber bem."],
-  ["users", "Versatilidade", "Ideal para igrejas, famílias, equipes, confraternizações e eventos em grupo."],
-  ["map", "Fácil acesso", "Localizado em Gravataí/RS, com acesso prático para a região metropolitana."],
+  ["users", "Exclusivo para igrejas evangélicas", "Um espaço dedicado exclusivamente à realização de retiros cristãos, proporcionando um ambiente de comunhão, paz e crescimento espiritual."],
+  ["home", "Estrutura completa", "Salão de cultos para até 150 pessoas, dormitórios para 134 hóspedes, alimentação inclusa e toda a infraestrutura necessária para o seu retiro."],
+  ["bath", "Conforto para todos", "Dormitórios para 10 e 16 pessoas, com banheiros internos e chuveiros a gás, oferecendo mais conforto durante toda a estadia."],
+  ["party", "Lazer e integração", "Piscinas, campo de futebol, quadra de vôlei, quiosque com sinuca, pingue-pongue e fla-flu, além de um aconchegante espaço para fogueira."],
+  ["map", "Localização privilegiada", "Em Gravataí/RS, cercado pela natureza e com fácil acesso para toda a Região Metropolitana."],
 ] as const;
 
 const reviews = [
@@ -92,25 +95,25 @@ function Stars({ rating }: { rating: number }) {
 
 export default function HomePage() {
   const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5551986129832";
-  const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent("Olá! Gostaria de conhecer o Sítio Emanuel e consultar informações para um encontro ou retiro.")}`;
+  const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent("Olá! Gostaria de consultar uma data para o retiro da nossa igreja no Sítio Emanuel.")}`;
 
   return (
     <main className="bg-white text-[#172019]">
-      <section id="inicio" className="relative flex min-h-[680px] items-center overflow-hidden bg-[#102218] pt-20 lg:min-h-[760px]">
+      <section id="inicio" className="relative flex min-h-[700px] items-center overflow-hidden bg-[#102218] pt-20 lg:min-h-[780px]">
         <Image src="/fotos/1.jpeg" alt="Área de lazer e piscinas do Sítio Emanuel" fill priority sizes="100vw" className="object-cover object-center" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,18,11,.88)_0%,rgba(4,18,11,.67)_43%,rgba(4,18,11,.25)_76%,rgba(4,18,11,.18)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,18,11,.9)_0%,rgba(4,18,11,.72)_48%,rgba(4,18,11,.28)_80%,rgba(4,18,11,.18)_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/20" />
 
         <div className="relative z-10 mx-auto w-full max-w-[1180px] px-5 pb-24 pt-16 sm:px-8 lg:px-10">
-          <div className="max-w-[650px]">
+          <div className="max-w-[760px]">
             <span className="inline-flex rounded-md border border-white/15 bg-[#163e24]/65 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-white/90 backdrop-blur-sm">
-              Natureza • conforto • momentos inesquecíveis
+              Retiros cristãos • Gravataí/RS
             </span>
-            <h1 className="mt-5 text-[42px] font-bold leading-[1.02] tracking-[-0.04em] text-white sm:text-[58px] lg:text-[70px]">
-              O lugar perfeito para <span className="block text-[#68bd4f]">celebrar a vida</span>
+            <h1 className="mt-5 text-[38px] font-bold leading-[1.06] tracking-[-0.04em] text-white sm:text-[52px] lg:text-[62px]">
+              Um lugar de <span className="block text-[#68bd4f]">comunhão, renovação</span><span className="block">e encontro com Deus</span>
             </h1>
-            <p className="mt-6 max-w-xl text-[15px] leading-7 text-white/82 sm:text-[17px]">
-              Um espaço completo em meio à natureza para retiros, encontros, celebrações e momentos que ficam na memória.
+            <p className="mt-6 max-w-2xl text-[15px] leading-7 text-white/82 sm:text-[17px]">
+              Um espaço exclusivo para retiros de igrejas evangélicas, preparado para receber sua igreja com conforto, segurança e uma estrutura completa.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a href={whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#54b744] px-6 text-sm font-bold text-white shadow-[0_12px_35px_rgba(50,150,55,.28)] transition hover:-translate-y-0.5 hover:bg-[#63c653]">
@@ -129,20 +132,20 @@ export default function HomePage() {
       </section>
 
       <section id="estrutura" className="scroll-mt-20 bg-white px-5 py-20 sm:px-8 lg:py-24">
-        <div className="mx-auto grid max-w-[1180px] gap-12 lg:grid-cols-[.78fr_1.22fr] lg:items-center">
+        <div className="mx-auto grid max-w-[1180px] gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <SectionTag>Estrutura completa</SectionTag>
             <h2 className="mt-3 text-3xl font-bold leading-tight tracking-[-0.035em] text-[#172019] sm:text-[42px]">
-              Tudo o que você precisa <span className="block text-[#469b38]">em um só lugar</span>
+              Tudo o que sua igreja precisa para um <span className="text-[#469b38]">retiro inesquecível</span>
             </h2>
-            <p className="mt-5 max-w-md text-sm leading-7 text-slate-600">
-              Um ambiente amplo, integrado à natureza e preparado para receber grupos com conforto, tranquilidade e praticidade.
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600">
+              O Sítio Emanuel Retiros é um espaço exclusivo para retiros de igrejas evangélicas, oferecendo conforto, tranquilidade e uma estrutura completa para que sua igreja viva dias de comunhão, crescimento espiritual e momentos marcantes na presença de Deus.
             </p>
-            <div className="mt-7 grid gap-3">
+            <div className="mt-7 grid gap-3 sm:grid-cols-2">
               {structureItems.map(([icon, label]) => (
-                <div key={label} className="flex items-center gap-3 text-sm font-medium text-slate-700">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#edf8e9] text-[#489c3a]"><Icon name={icon} className="h-4 w-4" /></span>
-                  {label}
+                <div key={label} className="flex items-start gap-3 rounded-xl bg-[#f7faf6] p-3 text-sm font-medium leading-5 text-slate-700">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#e7f4e2] text-[#489c3a]"><Icon name={icon} className="h-4 w-4" /></span>
+                  <span className="pt-1">{label}</span>
                 </div>
               ))}
             </div>
@@ -164,15 +167,18 @@ export default function HomePage() {
         <div className="mx-auto max-w-[1180px] text-center">
           <SectionTag>Como funciona</SectionTag>
           <h2 className="mt-3 text-3xl font-bold tracking-[-0.035em] text-[#172019] sm:text-[40px]">
-            Organizar seu encontro é <span className="text-[#4aa13c]">simples</span>
+            Planejar o retiro da sua igreja é <span className="text-[#4aa13c]">simples</span>
           </h2>
-          <div className="relative mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-slate-600">
+            Nossa equipe acompanha você em cada etapa para que seu grupo tenha uma experiência tranquila, desde a reserva até a chegada ao Sítio Emanuel.
+          </p>
+          <div className="relative mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <div className="absolute left-[12%] right-[12%] top-8 hidden border-t border-dashed border-[#85bd79] lg:block" />
             {steps.map(([icon, title, text]) => (
-              <article key={title} className="relative z-10 flex flex-col items-center">
-                <span className="flex h-16 w-16 items-center justify-center rounded-full border border-[#b9dab2] bg-white text-[#4ca33d] shadow-sm"><Icon name={icon} className="h-7 w-7" /></span>
+              <article key={title} className="relative z-10 flex h-full flex-col items-center rounded-[18px] border border-[#e2ebe0] bg-white px-5 pb-6 pt-5 shadow-sm">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full border border-[#b9dab2] bg-white text-[#4ca33d]"><Icon name={icon} className="h-7 w-7" /></span>
                 <h3 className="mt-5 text-sm font-bold text-[#1c2820]">{title}</h3>
-                <p className="mt-2 max-w-[230px] text-xs leading-5 text-slate-500">{text}</p>
+                <p className="mt-3 text-xs leading-5 text-slate-500">{text}</p>
               </article>
             ))}
           </div>
@@ -184,13 +190,15 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,20,11,.97),rgba(3,25,13,.84),rgba(3,20,11,.95))]" />
         <div className="relative mx-auto max-w-[1180px] text-center">
           <SectionTag light>Por que escolher o Sítio Emanuel?</SectionTag>
-          <h2 className="mt-3 text-3xl font-bold tracking-[-0.035em] sm:text-[40px]">Natureza, conforto e segurança</h2>
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-0">
-            {benefits.map(([icon, title, text], index) => (
-              <article key={title} className={`px-5 ${index ? "lg:border-l lg:border-white/15" : ""}`}>
+          <h2 className="mx-auto mt-3 max-w-4xl text-3xl font-bold leading-tight tracking-[-0.035em] sm:text-[40px]">
+            Muito mais que um lugar. <span className="text-[#8bd66d]">Um ambiente preparado para viver a presença de Deus.</span>
+          </h2>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {benefits.map(([icon, title, text]) => (
+              <article key={title} className="rounded-[18px] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
                 <Icon name={icon} className="mx-auto h-10 w-10 text-[#68c254]" />
                 <h3 className="mt-4 text-sm font-bold">{title}</h3>
-                <p className="mt-3 text-xs leading-5 text-white/62">{text}</p>
+                <p className="mt-3 text-xs leading-5 text-white/65">{text}</p>
               </article>
             ))}
           </div>
@@ -233,7 +241,7 @@ export default function HomePage() {
           </div>
 
           <div className="min-h-[330px] overflow-hidden rounded-[18px] border border-slate-200 bg-white shadow-sm">
-            <iframe title="Localização do Sítio Emanuel" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3459.8661566685896!2d-50.96700012378962!3d-29.86813357501282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95190d11b273ac4d%3A0xecbc16d6da05b014!2sSitio%20Emanuel%20Retiros!5e0!3m2!1spt-BR!2sbr!4v1776280247918!5m2!1spt-BR!2sbr" loading="lazy" className="h-full min-h-[330px] w-full border-0" />
+            <iframe title="Localização do Sítio Emanuel" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3459.8661566685896!2d-50.96700012378962!3d-29.86813357501282!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x95190d11b273ac4d%3A0xecbc16d6da05b014!2sSitio%20Emanuel%20Retiros!5e0!3m2!1spt-BR!2sbr!4v1776280247918!5m2!1spt-BR!2sbr" loading="lazy" className="h-full min-h-[330px] w-full border-0" />
           </div>
 
           <aside id="contato" className="flex flex-col justify-center rounded-[18px] bg-[#092016] p-7 text-white shadow-[0_20px_50px_rgba(12,38,23,.18)]">
